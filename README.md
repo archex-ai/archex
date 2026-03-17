@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # ARCHEX
@@ -8,10 +7,9 @@
 *Origin. Command. Evolution.*
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-ARCHEX-yellow)](https://huggingface.co/archex-ai)
+[![Model](https://img.shields.io/badge/🤗_Model-MedLM_v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
+[![Demo](https://img.shields.io/badge/🤗_Demo-Live-green)](https://huggingface.co/spaces/archex-ai/archex-medlm-demo)
 [![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-7289DA)](https://discord.gg/FeMCJZJTry)
-[![arXiv](https://img.shields.io/badge/arXiv-BioSignal%20Tokenization-red)](https://arxiv.org)
-[![HuggingFace](https://img.shields.io/badge/🤗-archex--medlm--v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
 
 ---
 
@@ -23,9 +21,9 @@
 
 ## What is ARCHEX?
 
-ARCHEX is an open-source AI stack purpose-built for **medical intelligence and bionic systems**.
+ARCHEX is an open-source medical AI stack built for **human augmentation**.
 
-We are not building another chatbot. We are building the infrastructure layer that will power the next generation of prosthetic limbs, neural interfaces, cochlear implants, and human augmentation devices — the same way NVIDIA's CUDA became the invisible backbone of every AI system on earth.
+We are not building another chatbot. We are building the intelligence layer that will power the next generation of prosthetic limbs, neural interfaces, cochlear implants, and human augmentation devices — the same way NVIDIA's CUDA became the invisible backbone of every AI system on earth.
 
 **Few people. One mission. The window is open right now.**
 
@@ -39,18 +37,20 @@ That is what ARCHEX is for.
 
 ```
 ARCHEX
-├── archex-medlm/          # Medical language model (open weights)
-│   ├── 7B-instruct/       # Fine-tuned on PubMed + MIMIC-IV
-│   └── training/          # QLoRA recipes, data pipelines
+├── core/                  # Model training pipeline
+│   └── archex-medlm/      # Medical language model (open weights)
 │
-├── biosim/                # Virtual environment for bionic AI training
-│   ├── envs/              # MuJoCo + Gymnasium bionic environments
-│   ├── generators/        # Synthetic EMG/EEG signal generation
+├── spectra/               # Synthetic biosignal environment
+│   ├── generators/        # EMG/EEG synthetic signal generation
 │   └── sim2real/          # Sim-to-real transfer utilities
+│
+├── meridian/              # Medical knowledge ingestion pipeline
+│   ├── pubmed/            # PubMed Open Access ingestion
+│   └── clinical/          # Clinical notes pipeline
 │
 ├── signal-encoder/        # 1D-CNN biosignal → LLM embedding bridge
 │   ├── models/            # Pretrained signal encoders
-│   └── tokenizer/         # BioSignal tokenization (our core innovation)
+│   └── tokenizer/         # BioSignal tokenization
 │
 └── sdk/                   # ARCHEX SDK for bionic device integration
     ├── python/
@@ -61,8 +61,6 @@ ARCHEX
 ---
 
 ## Why now?
-
-The convergence is happening whether we build for it or not:
 
 | Signal | What it means |
 |--------|--------------|
@@ -84,24 +82,46 @@ This is the technical foundation for a bionic limb that doesn't just detect "ope
 
 ---
 
+## SPECTRA — Synthetic Biosignal Environment
+
+SPECTRA generates physiologically realistic biosignal training data without hardware, participants, or cost. Built on published EMG spectral profiles, it produces unlimited synthetic training samples across 6 prosthetic hand gesture classes.
+
+No hardware. No participants. No ethics approval required. Unlimited data at ₹0.
+
+This is the sim-to-real strategy — the same approach Boston Dynamics uses for robot locomotion. Train entirely in simulation, deploy to real hardware.
+
+---
+
+## MERIDIAN — Medical Knowledge Pipeline
+
+MERIDIAN ingests, cleans, and prepares open-license medical knowledge for training. Sources include PubMed Open Access (34M papers), PhysioNet biosignal collections, and clinical note datasets. All open-license, all verifiable, all reproducible.
+
+---
+
 ## Phases
 
-### Phase 1 — ARCHEX MedLM (Now → Month 3)
-- Phi-3-mini fine-tuned on 34M PubMed papers + MIMIC-IV clinical notes
-- Open weights on HuggingFace (Apache 2.0)
-- REST API at `api.archex.ai` — ₹0.001/1K tokens
-- Benchmark target: beat GPT-3.5 on MedQA, PubMedQA, BioASQ
+### Phase 0 — Foundation ✓ Complete
+- SPECTRA synthetic EMG generator — 6 gesture classes, ₹0 cost
+- ARCHEX MedLM v0 trained and live on HuggingFace
+- Public demo running at huggingface.co/spaces/archex-ai/archex-medlm-demo
+- Training pipeline validated on free hardware
 
-### Phase 2 — BioSim + Signal Model (Month 4–6)
-- BioSim: open-source virtual environment for bionic AI training
-- ARCHEX-Signal-13B: first multimodal model understanding text + biosignals
-- Synthetic EMG/EEG dataset generation for FDA-compliant training data
+### Phase 1 — Medical Intelligence (Now → Month 3)
+- MERIDIAN ingests 50,000 PubMed abstracts
+- Model becomes genuinely medically literate
+- REST API launch — medical consultation at scale
+- First paying customer
+
+### Phase 2 — Signal Intelligence (Month 4–6)
+- SPECTRA v2 — adds EEG, ECG synthetic generation
+- ARCHEX Signal Model — multimodal text + biosignals
+- Synthetic dataset sales to research labs
 - arXiv preprint: *"BioSignal Tokenization for Multimodal Medical LLMs"*
 
-### Phase 3 — ARCHEX Platform (Month 7–9)
-- ARCHEX SDK v1.0 — integrate bionic AI in 3 lines of code
+### Phase 3 — Platform (Month 7–9)
+- ARCHEX SDK v1.0 — bionic device integration in 3 lines of code
 - Enterprise API for medical device companies
-- On-prem deployment package for hospitals (patient data never leaves)
+- On-prem deployment for hospitals
 - First commercial bionic device integration
 
 ---
@@ -120,7 +140,7 @@ NVIDIA did not win because their GPU was the best. They won because they gave de
 from archex.sdk import BionicInterface, SignalEncoder
 
 interface = BionicInterface(device="prosthetic_hand_v2")
-encoder = SignalEncoder.from_pretrained("archex/signal-encoder-emg-v1")
+encoder = SignalEncoder.from_pretrained("archex-ai/signal-encoder-emg-v1")
 
 # Real-time EMG → intent → motor command
 # 200ms end-to-end latency
@@ -136,15 +156,15 @@ for signal_window in interface.stream(sample_rate=250):
 ## Getting Started
 
 ```bash
-git clone https://github.com/kephh/archex
+git clone https://github.com/archex-ai/archex
 cd archex
 pip install -e ".[all]"
 
 # Run the medical QA demo
 python -m archex.demo.medqa
 
-# Start the BioSim environment
-python -m archex.biosim.envs.prosthetic_hand --render
+# Start SPECTRA — synthetic biosignal generation
+python -m archex.spectra.generators.emg --gestures 6 --samples 500
 ```
 
 ---
@@ -159,18 +179,19 @@ All data used in ARCHEX training is open-license:
 | MIMIC-IV | Clinical notes | 40K patients | PhysioNet Credentialed |
 | PhysioNet Collections | Biosignals (ECG, EEG, EMG) | 4TB | Open Data Commons |
 | BCI Competition IV | Motor imagery EEG | 9 subjects | Free research use |
-| The Stack v2 | Code (Python, C, MATLAB) | 3TB | Stack Exchange ODbL |
 
 ---
 
 ## Roadmap
 
-- [x] Repository structure
-- [x] Data pipeline (PubMed + MIMIC ingestion)
-- [ ] ARCHEX-MedLM-7B release
-- [ ] BioSim v0.1 (EMG prosthetic hand environment)
+- [x] SPECTRA synthetic biosignal generator
+- [x] ARCHEX MedLM v0 — open weights on HuggingFace
+- [x] Live demo — huggingface.co/spaces/archex-ai/archex-medlm-demo
+- [x] Training pipeline on free hardware
+- [ ] MERIDIAN — PubMed ingestion pipeline
+- [ ] ARCHEX MedLM v1 — medically literate
 - [ ] Signal encoder pretrained weights
-- [ ] ARCHEX-Signal-13B release
+- [ ] ARCHEX Signal Model — multimodal
 - [ ] SDK v1.0
 - [ ] arXiv paper
 - [ ] First bionic device integration
