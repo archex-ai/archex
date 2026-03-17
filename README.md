@@ -1,4 +1,3 @@
-[![HuggingFace](https://img.shields.io/badge/🤗-archex--medlm--v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
 
 <div align="center">
 
@@ -12,6 +11,7 @@
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-ARCHEX-yellow)](https://huggingface.co/archex-ai)
 [![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-7289DA)](https://discord.gg/FeMCJZJTry)
 [![arXiv](https://img.shields.io/badge/arXiv-BioSignal%20Tokenization-red)](https://arxiv.org)
+[![HuggingFace](https://img.shields.io/badge/🤗-archex--medlm--v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
 
 ---
 
