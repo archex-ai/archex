@@ -1,3 +1,5 @@
+[![HuggingFace](https://img.shields.io/badge/🤗-archex--medlm--v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
+
 <div align="center">
 
 # ARCHEX
