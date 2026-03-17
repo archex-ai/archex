@@ -8,7 +8,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-ARCHEX-yellow)](https://huggingface.co/archex)
-[![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-7289DA)](https://discord.gg/archex)
+[![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-7289DA)](https://discord.gg/FeMCJZJTry)
 [![arXiv](https://img.shields.io/badge/arXiv-BioSignal%20Tokenization-red)](https://arxiv.org)
 
 ---
