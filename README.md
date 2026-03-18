@@ -10,6 +10,7 @@
 [![Model](https://img.shields.io/badge/🤗_Model-MedLM_v0-yellow)](https://huggingface.co/archex-ai/archex-medlm-v0)
 [![Demo](https://img.shields.io/badge/🤗_Demo-Live-green)](https://huggingface.co/spaces/archex-ai/archex-medlm-demo)
 [![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-7289DA)](https://discord.gg/FeMCJZJTry)
+[![Dataset](https://img.shields.io/badge/🤗_Dataset-meridian--v1-blue)](https://huggingface.co/datasets/archex-ai/meridian-v1)
 
 ---
 
