@@ -107,7 +107,7 @@ MERIDIAN ingests, cleans, and prepares open-license medical knowledge for traini
 - Training pipeline validated on free hardware
 
 ### Phase 1 — Medical Intelligence (Now → Month 3)
-- MERIDIAN ingests 50,000 PubMed abstracts
+- [x] MERIDIAN v1 — 49,000 PubMed abstracts ingested and published
 - Model becomes genuinely medically literate
 - REST API launch — medical consultation at scale
 - First paying customer
